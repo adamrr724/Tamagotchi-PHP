@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action='/clear' method='post'>
+      <button type='submit'>Clear</button>
+    </form>
+    <form action='/passthetime' method='post'>
+      <button type='submit'>Pass the time</button>
+    </form>
+    <ul>
+      {% for tammy in tammyList %}
+      <ul>
+        <li>Name: {{ tammy.getName }}</li>
+        <li>Food: {{ tammy.getFood }}</li>
+        <li>Attention: {{ tammy.getAttention }}</li>
+        <li>Rest: {{ tammy.getRest }}</li>
+      </ul>
+      <form action='/feed' method='post'>
+        <button name="name" value="{{ tammy.getName }}" type='submit'>Feed</button>
+      </form>
+      <form action='/play' method='post'>
+        <button name="name" value="{{ tammy.getName }}" type='submit'>Play</button>
+      </form>
+      <form action='/sleep' method='post'>
+        <button name="name" value="{{ tammy.getName }}" type='submit'>Sleep</button>
+      </form>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
